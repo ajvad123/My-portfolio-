@@ -1,0 +1,132 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 261 73% 63%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    --radius: 0.5rem;
+    
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217.2 91.2% 59.8%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 261 73% 63%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-white relative;
+  }
+  
+  .section-heading::after {
+    @apply content-[''] absolute left-0 -bottom-2 h-1 w-16 bg-gradient-to-r from-portfolio-blue via-portfolio-purple to-portfolio-indigo;
+  }
+  
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l border-white/20;
+  }
+  
+  .timeline-item::before {
+    @apply content-[''] absolute left-[-8px] top-0 w-4 h-4 rounded-full bg-portfolio-blue;
+  }
+  
+  .animated-bg {
+    background: linear-gradient(-45deg, #2563eb, #4f46e5, #8b5cf6, #2563eb);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  .nav-link {
+    @apply relative px-3 py-2 text-white/70 hover:text-white transition-all duration-300 ease-in-out;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute left-0 bottom-0 h-0.5 w-0 bg-portfolio-purple transition-all duration-300 ease-in-out;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .project-card {
+    @apply bg-secondary rounded-lg overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-portfolio-purple/20 border border-white/10;
+  }
+  
+  .project-card:hover {
+    @apply -translate-y-2;
+  }
+  
+  .animated-gradient-text {
+    @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-portfolio-blue via-portfolio-purple to-portfolio-indigo animate-gradient bg-300;
+  }
+  
+  .skill-bar {
+    @apply h-2 rounded-full bg-white/10 overflow-hidden relative;
+  }
+  
+  .skill-progress {
+    @apply h-full absolute left-0 top-0 rounded-full bg-gradient-to-r from-portfolio-blue to-portfolio-purple;
+    animation: expand 1.5s ease-out forwards;
+  }
+  
+  @keyframes expand {
+    from { width: 0; }
+    to { width: var(--width); }
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .bg-300 {
+    background-size: 300% 300%;
+  }
+}
