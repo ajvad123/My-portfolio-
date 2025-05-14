@@ -112,12 +112,12 @@ const Hero = () => {
   // Handle CV download
   const handleDownloadCV = () => {
     // Replace this URL with the actual path to your CV file
-    const cvUrl = 'https://drive.google.com/file/d/12YQMDN-FBqxs-gQk_WFGqOXvLuwlhv7p/view';
+    const cvUrl = 'https://drive.google.com/file/d/1uwFZAXF-4sDUpSjfT4H3DCv7zj-Ny83H/view?usp=drivesdk';
     
     // Create a temporary anchor element
     const link = document.createElement('a');
     link.href = cvUrl;
-    link.download = 'https://drive.google.com/file/d/12YQMDN-FBqxs-gQk_WFGqOXvLuwlhv7p/view';
+    link.download = 'https://drive.google.com/file/d/1uwFZAXF-4sDUpSjfT4H3DCv7zj-Ny83H/view?usp=drivesdk';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
